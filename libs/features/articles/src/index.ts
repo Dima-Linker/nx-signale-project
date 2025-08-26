@@ -8,4 +8,4 @@ export * from './lib/application/mappers/comment.mapper';
 export * from './lib/infrastructure/mocks/article.mock';
 export * from './lib/infrastructure/repositories/article.repository';
 export * from './lib/application/facades/article.facade';
-
+export * from './lib/presentation/store/article.store';

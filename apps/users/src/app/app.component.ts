@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { NavbarComponent } from '../../../../libs/shared/ui/src/lib/components/navbar/navbar.component';
+import {
+  ArticleListComponent
+} from '../../../../libs/features/articles/src/lib/presentation/pages/article-list-page/article-list.component';
+
 
 
 
 @Component({
-  imports: [  CommonModule,
+  imports: [
     RouterModule,
-    NavbarComponent
+    ArticleListComponent,
   ],
   standalone: true,
   selector: 'app-root',
