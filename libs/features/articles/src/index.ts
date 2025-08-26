@@ -6,3 +6,6 @@ export * from './lib/application/dto/comment.dto';
 export * from './lib/application/mappers/article.mapper';
 export * from './lib/application/mappers/comment.mapper';
 export * from './lib/infrastructure/mocks/article.mock';
+export * from './lib/infrastructure/repositories/article.repository';
+export * from './lib/application/facades/article.facade';
+
