@@ -17,6 +17,7 @@
     "paths": {
       "articles": ["libs/features/articles/src/index.ts"],
       "home": ["libs/features/home/src/index.ts"],
+      "state": ["libs/state/src/index.ts"],
       "ui": ["libs/shared/ui/src/index.ts"]
     }
   },
