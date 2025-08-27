@@ -22,13 +22,13 @@ export const ArticleStore = signalStore(
     loadArticles: rxMethod<void>(() =>
       facade.getArticles().pipe(
         tap(() => patchState(store, { loading: true, error: null })),
-        map(articles => patchState(store, { articles, loading: false })),
-        catchError(error => {
+        map((articles) => patchState(store, { articles, loading: false })),
+        catchError((error) => {
           console.error('Error:', error);
           patchState(store, { error: error.message, loading: false });
           return of(null);
-        })
-      )
+        }),
+      ),
     ),
-  }))
+  })),
 );

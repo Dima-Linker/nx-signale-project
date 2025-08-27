@@ -4,6 +4,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 
 
 
@@ -16,8 +17,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    MatListModule
-
+    MatListModule,
+    MatIcon,
   ],
   templateUrl: './article-list.component.html',
   styleUrls: ['./article-list.component.scss'],
@@ -28,11 +29,12 @@ export class ArticleListComponent implements OnInit {
   loading = computed(() => this.store.loading());
   error = computed(() => this.store.error());
 
-
   formatDate(date: string | Date): string {
-    if (!date) return '';
+    if (!date) return 'Ungültiges Datum';
     const dateObj = new Date(date);
-    return dateObj.toLocaleString();
+    return isNaN(dateObj.getTime())
+      ? 'Ungültiges Datum'
+      : dateObj.toLocaleString();
   }
 
   ngOnInit() {

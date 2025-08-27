@@ -1,19 +1,19 @@
 <div class="wink:container wink:mx-auto wink:p-4">
   @if (loading()) {
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    <mat-progress-spinner mode="indeterminate" class="wink:block wink:mx-auto"></mat-progress-spinner>
   } @else {
-    @if (error();) {
+    @if (error()) {
       <mat-card class="wink:mb-8 wink:p-4">
         <mat-card-header>
           <mat-card-title class="wink:text-red-500">Artikel kann nicht geladen werden...</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p>Versuche es noch einmal </p>
+          <p>Versuche es noch einmal</p>
         </mat-card-content>
       </mat-card>
     } @else {
       <div class="wink:space-y-6">
-        @for (article of articles(); track article.id ?? article.title) {
+        @for (article of articles(); track article.id) {
           <mat-card class="wink:hover:shadow-lg wink:transition-shadow">
             <mat-card-header>
               <mat-card-title class="wink:text-xl wink:font-semibold wink:text-gray-700">
@@ -22,14 +22,13 @@
             </mat-card-header>
             <mat-card-content>
               <p class="wink:text-gray-600 wink:mt-2">{{ article.content }}</p>
-              <p class="wink:text-gray-500 wink:mt-10"><strong>Author:</strong> {{ article.author }} ({{ article.email }})</p>
+              <p class="wink:text-gray-500 wink:mt-1"><strong>Author:</strong> {{ article.author }} ({{ article.email }})</p>
               <p class="wink:text-gray-500 wink:mt-1"><strong>Created:</strong> {{ formatDate(article.createdAt) }}</p>
-
               @if (article.comments.length > 0) {
                 <div class="wink:mt-4">
                   <h4 class="wink:text-lg wink:font-medium wink:text-gray-700">Comments</h4>
                   <mat-list class="wink:mt-2">
-                    @for (comment of article.comments; track comment.text) {
+                    @for (comment of article.comments; track comment.authorId) {
                       <mat-list-item>
                         <div class="wink:text-gray-600">
                           <p>{{ comment.text }} - <em class="wink:text-gray-500">{{ comment.author }}</em></p>
@@ -38,6 +37,13 @@
                     }
                   </mat-list>
                 </div>
+                <div class="wink:flex wink:justify-end wink:w-full">
+                  <button class="wink:border wink:border-blue-500 wink:text-blue-500 wink:hover:bg-blue-50 wink:rounded-md wink:px-4 wink:py-2 wink:flex wink:items-center wink:gap-2">
+                    <mat-icon class="wink:text-blue-500">add</mat-icon>
+                    <span>Artikel hinzufügen</span>
+                  </button>
+                </div>
+
               }
             </mat-card-content>
           </mat-card>
