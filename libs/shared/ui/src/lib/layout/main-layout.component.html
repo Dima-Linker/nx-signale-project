@@ -1,0 +1,31 @@
+<lib-navigation (toggleSidebarEvent)="toggleSidebar()"></lib-navigation>
+
+<div class="wink:flex wink:h-[calc(100vh-64px)]">
+  <mat-sidenav
+    [opened]="isSidebarOpen()"
+    [mode]="isSidebarOpen() ? 'side' : 'over'"
+    class="wink:w-64 wink:bg-gray-100 wink:p-4"
+    style="box-shadow: 2px 0 5px rgba(0,0,0,0.1);"
+  >
+    <div class="wink:space-y-2">
+      <a
+        routerLink="/home"
+        routerLinkActive="wink:bg-blue-200 wink:rounded"
+        class="wink:block wink:p-2 wink:text-gray-700 wink:hover:bg-blue-100 wink:rounded"
+      >
+        Home
+      </a>
+      <a
+        routerLink="/articles"
+        routerLinkActive="wink:bg-blue-200 wink:rounded"
+        class="wink:block wink:p-2 wink:text-gray-700 wink:hover:bg-blue-100 wink:rounded"
+      >
+        Articles
+      </a>
+    </div>
+  </mat-sidenav>
+
+  <main class="wink:flex-1 wink:p-4 wink:overflow-y-auto">
+    <router-outlet></router-outlet>
+  </main>
+</div>

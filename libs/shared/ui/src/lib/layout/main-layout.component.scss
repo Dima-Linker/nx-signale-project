@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+.mat-sidenav-container {
+  height: calc(100vh - 64px);
+}
+
+mat-sidenav {
+  min-width: 64px;
+}
+
+main {
+  min-height: calc(100vh - 64px);
+}
+
+a[routerLink] {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  mat-sidenav {
+    width: 80% !important;
+  }
+  .mat-sidenav-content {
+    margin-left: 0 !important;
+  }
+}
